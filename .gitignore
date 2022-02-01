@@ -1,2 +1,4 @@
 parser/
 shop-backend/node_modules
+/shop-frontend/.next
+/shop-frontend/node_modules
