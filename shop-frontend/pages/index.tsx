@@ -1,9 +1,5 @@
 export default function Home() {
-  return (
-    <div>
-      rofl
-    </div>
-  );
+  return <div>rofl</div>;
 }
 
 // export const getStaticProps: any = async (context: any) => {
