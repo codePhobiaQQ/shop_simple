@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/next-e-commerce" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/parser" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/shop-frontend" vcs="Git" />
   </component>
