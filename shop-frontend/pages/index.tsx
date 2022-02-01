@@ -1,5 +1,5 @@
 export default function Home() {
-  return <div>rofl</div>;
+  return <div className={'text-blue-500'}>пыыавпаыв</div>;
 }
 
 // export const getStaticProps: any = async (context: any) => {
