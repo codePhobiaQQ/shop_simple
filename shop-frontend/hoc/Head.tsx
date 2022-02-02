@@ -1,11 +1,27 @@
+import CategorySection from '../components/CategorySection'
+import Link from 'next/link'
+
 interface IHead {
   children: any
 }
 
-export default function Head({ children }: IHead) {
+const Head = ({ children }: IHead) => {
   return (
     <>
       <div className="main-content-wrapper d-flex clearfix">
+        <div className="mobile-nav">
+          <div className="amado-navbar-brand">
+            <a href="index.html">
+              <img src="../public/img/core-img/logo.png" alt="" />
+            </a>
+          </div>
+          <div className="amado-navbar-toggler">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
         <header className="header-area clearfix">
           <div className="nav-close">
             <i className="fa fa-close" aria-hidden="true"></i>
@@ -18,42 +34,23 @@ export default function Head({ children }: IHead) {
           <nav className="amado-nav">
             <ul>
               <li className="active">
-                <a href="index.html">Home</a>
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
               </li>
               <li>
-                <a href="shop.html">Shop</a>
+                <Link href="/">
+                  <a>Shop</a>
+                </Link>
               </li>
               <li>
-                <a href="product-details.html">Product</a>
-              </li>
-              <li>
-                <a href="cart.html">Cart</a>
-              </li>
-              <li>
-                <a href="checkout.html">Checkout</a>
+                <Link href="/">
+                  <a>Product</a>
+                </Link>
               </li>
             </ul>
           </nav>
-          <div className="amado-btn-group mt-30 mb-100">
-            <a href="#" className="btn amado-btn mb-15">
-              %Discount%
-            </a>
-            <a href="#" className="btn amado-btn active">
-              New this week
-            </a>
-          </div>
-          <div className="cart-fav-search mb-100">
-            <a href="cart.html" className="cart-nav">
-              <img src="img/core-img/cart.png" alt="" /> Cart <span>(0)</span>
-            </a>
-            <a href="#" className="fav-nav">
-              <img src="img/core-img/favorites.png" alt="" /> Favourite
-            </a>
-            <a href="#" className="search-nav">
-              <img src="img/core-img/search.png" alt="" /> Search
-            </a>
-          </div>
-          <div className="social-info d-flex justify-content-between">
+          <div className="social-info d-flex mt-50 justify-content-between">
             <a href="#">
               <i className="fa fa-pinterest" aria-hidden="true"></i>
             </a>
@@ -68,8 +65,11 @@ export default function Head({ children }: IHead) {
             </a>
           </div>
         </header>
+        <CategorySection />
       </div>
       {children}
     </>
   )
 }
+
+export default Head

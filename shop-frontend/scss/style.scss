@@ -29,7 +29,7 @@
 //@import '../css/owl.carousel.css';
 @import '../css/animate.css';
 @import '../css/magnific-popup.css';
-//@import '../css/jquery-ui.min.css';
+@import '../css/jquery-ui.min.css';
 @import '../css/nice-select.css';
 @import '../css/font-awesome.min.css';
 
@@ -630,6 +630,10 @@ img {
         @include flex(0 0 calc(100% - 320px));
         width: calc(100% - 320px);
         max-width: calc(100% - 320px);
+        .amado-pro-catagory {
+            display: flex;
+            flex-wrap: wrap;
+        }
         @media #{$breakpoint-md} {
             @include flex(0 0 calc(100% - 280px));
             width: calc(100% - 280px);

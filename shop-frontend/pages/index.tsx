@@ -1,11 +1,12 @@
 import Head from '../hoc/Head'
+import SubscribeSection from '../components/SubscribeSection'
+import FooterSection from '../components/FooterSection'
 
 export default function Home() {
   return (
     <Head>
-      <div className="flex min-h-screen flex-col items-center justify-center py-2 text-blue-500">
-        hello
-      </div>
+      <SubscribeSection />
+      <FooterSection />
     </Head>
   )
 }
