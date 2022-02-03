@@ -40,7 +40,7 @@ const Head = ({ children }: IHead) => {
               </li>
               <li>
                 <Link href="/">
-                  <a>Shop</a>
+                  <a>Shop </a>
                 </Link>
               </li>
               <li>
