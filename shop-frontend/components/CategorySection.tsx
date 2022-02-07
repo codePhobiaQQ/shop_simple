@@ -6,7 +6,7 @@ const CategorySection = () => {
       <div className="amado-pro-catagory clearfix">
         {categories.map((categori, index) => (
           <div
-            key={'category' + index}
+            key={'categories' + index}
             className="single-products-catagory clearfix"
           >
             <a href="shop.html">

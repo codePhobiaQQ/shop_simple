@@ -1,12 +1,10 @@
 import Head from '../hoc/Head'
-import SubscribeSection from '../components/SubscribeSection'
-import FooterSection from '../components/FooterSection'
+import CategorySection from '../components/CategorySection'
 
 export default function Home() {
   return (
     <Head>
-      <SubscribeSection />
-      <FooterSection />
+      <CategorySection />
     </Head>
   )
 }

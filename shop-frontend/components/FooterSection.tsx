@@ -39,26 +39,6 @@ const FooterSection = () => {
                           Home
                         </a>
                       </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="shop.html">
-                          Shop
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="product-details.html">
-                          Product
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="cart.html">
-                          Cart
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="checkout.html">
-                          Checkout
-                        </a>
-                      </li>
                     </ul>
                   </div>
                 </nav>

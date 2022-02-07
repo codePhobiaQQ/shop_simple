@@ -1,19 +1,30 @@
-import CategorySection from '../components/CategorySection'
 import Link from 'next/link'
+// import FooterSection from '../components/FooterSection'
+import SubscribeSection from '../components/SubscribeSection'
+import Logo from '../public/img/LogoShop1.png'
 
 interface IHead {
   children: any
 }
 
 const Head = ({ children }: IHead) => {
+  const links = [
+    { title: 'Главная', link: '/' },
+    { title: 'Категории', link: '/categories' },
+    // { title: 'Category2', link: '/categories/2' },
+    // { title: 'Category3', link: '/categories/3' },
+  ]
+
   return (
     <>
       <div className="main-content-wrapper d-flex clearfix">
         <div className="mobile-nav">
           <div className="amado-navbar-brand">
-            <a href="index.html">
-              <img src="../public/img/core-img/logo.png" alt="" />
-            </a>
+            <Link href="/">
+              <a>
+                <img src="../public/img/core-img/LogoShop.jpg" alt="Logo" />
+              </a>
+            </Link>
           </div>
           <div className="amado-navbar-toggler">
             <span></span>
@@ -27,27 +38,21 @@ const Head = ({ children }: IHead) => {
             <i className="fa fa-close" aria-hidden="true"></i>
           </div>
           <div className="logo">
-            <a href="index.html">
-              <img src="img/core-img/logo.png" alt="" />
-            </a>
+            <Link href="/">
+              <a>
+                <img src={Logo.src} alt="Logo" />
+              </a>
+            </Link>
           </div>
           <nav className="amado-nav">
             <ul>
-              <li className="active">
-                <Link href="/">
-                  <a>Home</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <a>Shop </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  <a>Product</a>
-                </Link>
-              </li>
+              {links.map((linking, index) => (
+                <li key={'linkCategory' + index}>
+                  <Link href={linking.link}>
+                    <a>{linking.title}</a>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
           <div className="social-info d-flex mt-50 justify-content-between">
@@ -65,9 +70,10 @@ const Head = ({ children }: IHead) => {
             </a>
           </div>
         </header>
-        <CategorySection />
+        {children}
       </div>
-      {children}
+      <SubscribeSection />
+      {/* <FooterSection />*/}
     </>
   )
 }
