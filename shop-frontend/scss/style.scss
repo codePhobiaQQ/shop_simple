@@ -617,12 +617,24 @@ img {
                 }
             }
         }
+        .connect {
+            span:first-child {
+                font-weight: bold;
+            }
+        }
         .social-info {
             a {
                 color: #b5b5b5;
                 display: inline-block;
                 i {
                     font-size: 18px;
+                }
+                svg {
+                    fill: #b5b5b5;
+                    &:hover {
+                        fill: $bg-default;
+                        transition: fill .3s ease;
+                    }
                 }
                 &:hover,
                 &:focus {
@@ -1138,6 +1150,11 @@ img {
         top: 40px;
         left: 40px;
         z-index: 10;
+        padding: 5px;
+        padding-top: 12px;
+        color: #fff;
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, .25);
         @media #{$breakpoint-xs} {
             top: 30px;
             left: 30px;
@@ -1146,18 +1163,19 @@ img {
             width: 80px;
             height: 3px;
             background-color: $bg-default;
-            display: block;
             margin-bottom: 15px;
+            display: none;
         }
         p {
             font-size: 16px;
-            color: $text-color;
+            color: #fff;
             line-height: 1;
             margin-bottom: 5px;
             @include trans-duration(250ms);
         }
         h4 {
             margin-bottom: 0;
+            color: #fff;
             @include trans-duration(250ms);
         }
     }
