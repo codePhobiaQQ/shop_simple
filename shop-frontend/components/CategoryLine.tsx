@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export interface ICategoryPageWrapper {
   children?: any
@@ -25,6 +26,9 @@ const CategoryLine = ({ children }: ICategoryPageWrapper) => {
     },
   ]
 
+  const route = useRouter()
+  const activeCategory = route.asPath.split('categories/')[1]
+
   return (
     <div className="shop_sidebar_area">
       <div className="widget catagory mb-50">
@@ -33,7 +37,10 @@ const CategoryLine = ({ children }: ICategoryPageWrapper) => {
         <div className="catagories-menu">
           <ul>
             {categories.map((category, index) => (
-              <li key={'linkToCategory' + index}>
+              <li
+                className={category.link == activeCategory ? 'active' : ''}
+                key={'linkToCategory' + index}
+              >
                 <Link href={`/categories/${category.link}`}>
                   <a>{category?.title}</a>
                 </Link>

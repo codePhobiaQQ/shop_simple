@@ -341,6 +341,9 @@ img {
             display: block;
             max-width: 70px;
         }
+        img {
+            height: 50px;
+        }
     }
     .amado-navbar-toggler {
         cursor: pointer;
@@ -670,7 +673,8 @@ img {
             max-width: 100%;
             -webkit-box-ordinal-group: 3;
             -ms-flex-order: 2;
-            order: 2;
+            order: 1;
+            padding: 30px 20px;
         }
     }
     .amado_product_area {
@@ -951,8 +955,12 @@ img {
                     }
                 }
             }
-            .carousel-item a {
+            .carousel-item {
                 cursor: zoom-in;
+            }
+            .carousel-item img {
+                object-fit: contain;
+                max-height: 500px;
             }
         }
         .single_product_desc {
@@ -1446,6 +1454,7 @@ img {
             }
             &.active a {
                 color: $bg-default;
+                font-weight: bold;
             }
         }
     }

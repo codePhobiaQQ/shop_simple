@@ -3,6 +3,7 @@ import Link from 'next/link'
 import SubscribeSection from '../components/SubscribeSection'
 import Logo from '../public/img/LogoShop1.png'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 interface IHead {
   children: any
@@ -12,11 +13,13 @@ const Head = ({ children }: IHead) => {
   const links = [
     { title: 'Главная', link: '/' },
     { title: 'Категории', link: '/categories' },
-    // { title: 'Category2', link: '/categories/2' },
-    // { title: 'Category3', link: '/categories/3' },
   ]
-  const router = useRouter()
-  console.log(router.asPath)
+  // const router = useRouter()
+
+  const [isMenuOpen, setMenuOpen] = useState(false)
+  const clickHandler = () => {
+    setMenuOpen(!isMenuOpen)
+  }
 
   return (
     <>
@@ -29,15 +32,21 @@ const Head = ({ children }: IHead) => {
               </a>
             </Link>
           </div>
-          <div className="amado-navbar-toggler">
+          <div className="amado-navbar-toggler" onClick={() => clickHandler()}>
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
 
-        <header className="header-area clearfix">
-          <div className="nav-close">
+        <header
+          className={
+            isMenuOpen
+              ? 'header-area clearfix bp-xs-on'
+              : 'header-area clearfix'
+          }
+        >
+          <div className="nav-close" onClick={() => clickHandler()}>
             <i className="fa fa-close" aria-hidden="true"></i>
           </div>
           <div className="logo">

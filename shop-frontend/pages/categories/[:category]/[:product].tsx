@@ -1,8 +1,26 @@
 import Link from 'next/link'
 import Head from '../../../hoc/Head'
 import image from '../../../public/img/cover.jpeg'
+import image1 from '../../../public/img/coverBig.jpg'
+import { useState } from 'react'
 
 const ProductCart = () => {
+  const [whatActive, setWhatActive] = useState(0)
+  const productImages = [
+    {
+      image: image.src,
+    },
+    {
+      image: image1.src,
+    },
+    {
+      image: image.src,
+    },
+    {
+      image: image1.src,
+    },
+  ]
+
   return (
     <Head>
       <div className="single-product-area section-padding-100 clearfix">
@@ -43,33 +61,22 @@ const ProductCart = () => {
                   data-ride="carousel"
                 >
                   <ol className="carousel-indicators">
-                    <li
-                      className="active"
-                      data-target="#product_details_slider"
-                      data-slide-to="0"
-                      // style="background-image: url(img/product-img/pro-big-1.jpg);"
-                    ></li>
-                    <li
-                      data-target="#product_details_slider"
-                      data-slide-to="1"
-                      // style="background-image: url(img/product-img/pro-big-2.jpg);"
-                    ></li>
-                    <li
-                      data-target="#product_details_slider"
-                      data-slide-to="2"
-                      // style="background-image: url(img/product-img/pro-big-3.jpg);"
-                    ></li>
-                    <li
-                      data-target="#product_details_slider"
-                      data-slide-to="3"
-                      style={{ backgroundImage: `url(${image.src});` }}
-                    ></li>
+                    {productImages.map((product, index) => (
+                      <li
+                        key={'product' + index}
+                        onClick={() => setWhatActive(index)}
+                        className={index == whatActive ? 'active' : ''}
+                        data-target="#product_details_slider"
+                        data-slide-to="0"
+                        style={{ backgroundImage: `url("${product.image}")` }}
+                      ></li>
+                    ))}
                   </ol>
                   <div className="carousel-inner">
                     <div className="carousel-item active">
                       <img
                         className="d-block w-100"
-                        src={image.src}
+                        src={productImages[whatActive].image}
                         alt="First slide"
                       />
                     </div>

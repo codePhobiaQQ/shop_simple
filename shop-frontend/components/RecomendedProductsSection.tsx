@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import cover from '../public/img/cover.jpeg'
+import coverBack from '../public/img/cover_back.jpeg'
 
 interface IProductsSection {
   isRecomendedProducts: boolean
@@ -13,48 +15,48 @@ const RecomendedProductsSection = ({
       price: 10,
       id: 1,
       category: 'chair',
-      imgFirst: 'img/cover.jpeg',
-      imgHover: 'img/cover_back.jpeg',
+      imgFirst: cover.src,
+      imgHover: coverBack.src,
     },
     {
       title: 'Чехол Черный IPhone',
       price: 150,
       id: 2,
       category: 'chair',
-      imgFirst: 'img/cover.jpeg',
-      imgHover: 'img/cover_back.jpeg',
+      imgFirst: cover.src,
+      imgHover: coverBack.src,
     },
     {
       title: 'Чехол Черный IPhone',
       price: 150,
       id: 3,
       category: 'chair',
-      imgFirst: 'img/cover.jpeg',
-      imgHover: 'img/cover_back.jpeg',
+      imgFirst: cover.src,
+      imgHover: coverBack.src,
     },
     {
       title: 'Чехол Черный IPhone',
       price: 150,
       id: 4,
       category: 'chair',
-      imgFirst: 'img/cover.jpeg',
-      imgHover: 'img/cover_back.jpeg',
+      imgFirst: cover.src,
+      imgHover: coverBack.src,
     },
     {
       title: 'Чехол Черный IPhone',
       price: 150,
       id: 5,
       category: 'chair',
-      imgFirst: 'img/cover.jpeg',
-      imgHover: 'img/cover_back.jpeg',
+      imgFirst: cover.src,
+      imgHover: coverBack.src,
     },
     {
       title: 'Чехол Черный IPhone',
       price: 150,
       id: 6,
       category: 'chair',
-      imgFirst: 'img/cover.jpeg',
-      imgHover: 'img/cover_back.jpeg',
+      imgFirst: cover.src,
+      imgHover: coverBack.src,
     },
   ]
 
