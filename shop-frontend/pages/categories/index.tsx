@@ -1,13 +1,13 @@
-import Head from '../../hoc/Head'
+import Heading from '../../hoc/Heading'
 import CategoryLine from '../../components/CategoryLine'
 import RecomendedProductsSection from '../../components/RecomendedProductsSection'
 
 const Index = () => {
   return (
-    <Head>
+    <Heading>
       <CategoryLine />
       <RecomendedProductsSection isRecomendedProducts={true} />
-    </Head>
+    </Heading>
   )
 }
 

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Head from '../../../hoc/Head'
+import Heading from '../../../hoc/Heading'
 import image from '../../../public/img/cover.jpeg'
 import image1 from '../../../public/img/coverBig.jpg'
 import { useState } from 'react'
@@ -22,7 +22,7 @@ const ProductCart = () => {
   ]
 
   return (
-    <Head>
+    <Heading>
       <div className="single-product-area section-padding-100 clearfix">
         <div className="container-fluid">
           <div className="row">
@@ -155,7 +155,7 @@ const ProductCart = () => {
           </div>
         </div>
       </div>
-    </Head>
+    </Heading>
   )
 }
 

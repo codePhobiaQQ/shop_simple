@@ -1,15 +1,15 @@
 import CategoryLine, {
   ICategoryPageWrapper,
 } from '../../../components/CategoryLine'
-import Head from '../../../hoc/Head'
+import Heading from '../../../hoc/Heading'
 import RecomendedProductsSection from '../../../components/RecomendedProductsSection'
 
 const CategoryPage = ({ children }: ICategoryPageWrapper) => {
   return (
-    <Head>
+    <Heading>
       <CategoryLine />
       <RecomendedProductsSection isRecomendedProducts={false} />
-    </Head>
+    </Heading>
   )
 }
 

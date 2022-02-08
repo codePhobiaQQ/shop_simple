@@ -3,12 +3,14 @@ import Link from 'next/link'
 import SubscribeSection from '../components/SubscribeSection'
 import Logo from '../public/img/LogoShop1.png'
 import { useState } from 'react'
+// @ts-ignore
+import Head from 'next/head'
 
 interface IHead {
   children: any
 }
 
-const Head = ({ children }: IHead) => {
+const Heading = ({ children }: IHead) => {
   const links = [
     { title: 'Главная', link: '/' },
     { title: 'Категории', link: '/categories' },
@@ -21,6 +23,10 @@ const Head = ({ children }: IHead) => {
 
   return (
     <>
+      <Head>
+        <title>E-Tose</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="main-content-wrapper d-flex clearfix">
         <div className="mobile-nav">
           <div className="amado-navbar-brand">
@@ -130,4 +136,4 @@ const Head = ({ children }: IHead) => {
   )
 }
 
-export default Head
+export default Heading
