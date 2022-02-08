@@ -2,6 +2,7 @@ import Link from 'next/link'
 // import FooterSection from '../components/FooterSection'
 import SubscribeSection from '../components/SubscribeSection'
 import Logo from '../public/img/LogoShop1.png'
+import { useRouter } from 'next/router'
 
 interface IHead {
   children: any
@@ -14,6 +15,8 @@ const Head = ({ children }: IHead) => {
     // { title: 'Category2', link: '/categories/2' },
     // { title: 'Category3', link: '/categories/3' },
   ]
+  const router = useRouter()
+  console.log(router.asPath)
 
   return (
     <>
@@ -22,7 +25,7 @@ const Head = ({ children }: IHead) => {
           <div className="amado-navbar-brand">
             <Link href="/">
               <a>
-                <img src="../public/img/core-img/LogoShop.jpg" alt="Logo" />
+                <img src={Logo.src} alt="Logo" />
               </a>
             </Link>
           </div>

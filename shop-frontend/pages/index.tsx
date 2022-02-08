@@ -1,10 +1,10 @@
 import Head from '../hoc/Head'
-import CategorySection from '../components/CategorySection'
+import CategoryMainPageSection from '../components/CategoryMainPageSection'
 
 export default function Home() {
   return (
     <Head>
-      <CategorySection />
+      <CategoryMainPageSection />
     </Head>
   )
 }

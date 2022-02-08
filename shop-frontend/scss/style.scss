@@ -2,6 +2,7 @@
 @import 'variables';
 @import 'mixin';
 @import 'responsive';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* [Master Stylesheet v-1.0.0] */
 
@@ -41,8 +42,8 @@
 }
 
 body {
-    font-family: $font-hn-med;
-    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
 }
 
 h1,
@@ -160,6 +161,10 @@ img {
 
 .mr-50 {
     margin-right: 50px !important;
+}
+
+.bold-text {
+    font-weight: bold;
 }
 
 /* Height */
@@ -534,12 +539,12 @@ img {
                     font-size: 14px;
                     text-transform: uppercase;
                     position: relative;
+                    font-weight: bold;
                     z-index: 1;
                     padding: 20px 0;
                     display: block;
                     line-height: 0.9;
                     color: #131212;
-                    font-weight: normal;
                     &::after {
                         @include trans-duration(500ms);
                         width: 30px;
@@ -652,7 +657,7 @@ img {
         width: 230px;
         max-width: 230px;
         background-color: #f5f7fa;
-        padding: 100px 40px;
+        padding: 100px 20px;
         @media #{$breakpoint-md} {
             @include flex(0 0 180px);
             width: 180px;
@@ -1418,7 +1423,7 @@ img {
     position: relative;
     z-index: 1;
     .widget-title {
-        font-size: 16px;
+        font-size: 24px;
         text-transform: capitalize;
         color: #242424;
     }
@@ -1427,13 +1432,16 @@ img {
             a {
                 text-transform: capitalize;
                 font-size: 16px;
-                padding: 15px 0 15px 20px;
+                padding: 15px 0px 15px 10px;
                 display: block;
                 font-weight: 400;
                 color: #959595;
                 &:hover,
                 &:focus {
                     color: $bg-default;
+                }
+                &.sub {
+                    padding: 15px 0px 15px 20px;
                 }
             }
             &.active a {

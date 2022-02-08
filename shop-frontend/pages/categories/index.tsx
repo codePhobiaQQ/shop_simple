@@ -1,11 +1,11 @@
 import Head from '../../hoc/Head'
-import CategoryPageWrapper from '../../components/CategoryPageWrapper'
+import CategoryLine from '../../components/CategoryLine'
 import RecomendedProductsSection from '../../components/RecomendedProductsSection'
 
 const Index = () => {
   return (
     <Head>
-      <CategoryPageWrapper />
+      <CategoryLine />
       <RecomendedProductsSection isRecomendedProducts={true} />
     </Head>
   )

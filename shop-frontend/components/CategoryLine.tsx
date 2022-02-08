@@ -1,27 +1,27 @@
 import Link from 'next/link'
 
-interface ICategoryPageWrapper {
+export interface ICategoryPageWrapper {
   children?: any
 }
 
-interface ICategory {
+export interface ICategory {
   title: string
   link: string
 }
 
-const CategoryPageWrapper = ({ children }: ICategoryPageWrapper) => {
+const CategoryLine = ({ children }: ICategoryPageWrapper) => {
   const categories: ICategory[] = [
     {
       title: 'Защитные стекла',
-      link: '/categories/chair',
+      link: 'glasses',
     },
     {
       title: 'Чехлы',
-      link: '/categories/beds',
+      link: 'covers',
     },
     {
       title: 'Ремешки',
-      link: '/categories/accesories',
+      link: 'remeshki',
     },
   ]
 
@@ -32,10 +32,10 @@ const CategoryPageWrapper = ({ children }: ICategoryPageWrapper) => {
 
         <div className="catagories-menu">
           <ul>
-            {categories.map((categori, index) => (
+            {categories.map((category, index) => (
               <li key={'linkToCategory' + index}>
-                <Link href={categori?.link}>
-                  <a>{categori?.title}</a>
+                <Link href={`/categories/${category.link}`}>
+                  <a>{category?.title}</a>
                 </Link>
               </li>
             ))}
@@ -46,4 +46,4 @@ const CategoryPageWrapper = ({ children }: ICategoryPageWrapper) => {
   )
 }
 
-export default CategoryPageWrapper
+export default CategoryLine
