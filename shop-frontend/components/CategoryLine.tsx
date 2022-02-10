@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { ICategories, IProduct } from '../services/main.services'
 
 export interface ICategoryPageWrapper {
   children?: any
+  categories?: ICategories[]
+  products?: IProduct[]
 }
 
 export interface ICategory {
@@ -10,22 +13,8 @@ export interface ICategory {
   link: string
 }
 
-const CategoryLine = ({ children }: ICategoryPageWrapper) => {
-  const categories: ICategory[] = [
-    {
-      title: 'Защитные стекла',
-      link: 'glasses',
-    },
-    {
-      title: 'Чехлы',
-      link: 'covers',
-    },
-    {
-      title: 'Ремешки',
-      link: 'remeshki',
-    },
-  ]
-
+const CategoryLine = ({ children, categories }: ICategoryPageWrapper) => {
+  const categoriesmy = categories || ([] as ICategories[])
   const route = useRouter()
   const activeCategory = route.asPath.split('categories/')[1]
 
@@ -36,13 +25,13 @@ const CategoryLine = ({ children }: ICategoryPageWrapper) => {
 
         <div className="catagories-menu">
           <ul>
-            {categories.map((category, index) => (
+            {categoriesmy.map((category, index) => (
               <li
                 className={category.link == activeCategory ? 'active' : ''}
                 key={'linkToCategory' + index}
               >
                 <Link href={`/categories/${category.link}`}>
-                  <a>{category?.title}</a>
+                  <a>{category.name}</a>
                 </Link>
               </li>
             ))}

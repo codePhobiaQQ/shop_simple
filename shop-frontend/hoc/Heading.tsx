@@ -2,9 +2,11 @@ import Link from 'next/link'
 // import FooterSection from '../components/FooterSection'
 import SubscribeSection from '../components/SubscribeSection'
 import Logo from '../public/img/LogoShop1.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // @ts-ignore
 import Head from 'next/head'
+import mainServices, { IDataMy } from '../services/main.services'
+import { backendUrl } from '../vars'
 
 interface IHead {
   children: any
@@ -17,9 +19,29 @@ const Heading = ({ children }: IHead) => {
   ]
 
   const [isMenuOpen, setMenuOpen] = useState(false)
+  const [myData, changeMyData] = useState({
+    logo: { url: Logo.src },
+    telephone: '+7 (999) 839-76-28',
+    email: 'Etoseshop@yandex.ru',
+    ip: 'Калугин Руслан Сергеевич',
+    ogrn: '322774600080630',
+    inn: '644008830108',
+    instagram: 'https://www.instagram.com/etoseshop/',
+    vk: 'https://m.vk.com/club210602942',
+    tiktok: 'https://tiktok.com/@etoseshop',
+  } as IDataMy)
   const clickHandler = () => {
     setMenuOpen(!isMenuOpen)
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await mainServices.getDataMy()
+      result.logo.url = backendUrl + result.logo.url
+      changeMyData(result)
+    }
+    fetchData()
+  }, [])
 
   return (
     <>
@@ -32,7 +54,7 @@ const Heading = ({ children }: IHead) => {
           <div className="amado-navbar-brand">
             <Link href="/">
               <a>
-                <img src={Logo.src} alt="Logo" />
+                <img src={myData.logo.url} alt="Logo" />
               </a>
             </Link>
           </div>
@@ -56,7 +78,7 @@ const Heading = ({ children }: IHead) => {
           <div className="logo">
             <Link href="/">
               <a>
-                <img src={Logo.src} alt="Logo" />
+                <img src={myData.logo.url} alt="Logo" />
               </a>
             </Link>
           </div>
@@ -72,25 +94,13 @@ const Heading = ({ children }: IHead) => {
             </ul>
           </nav>
           <div className="social-info d-flex mt-50 justify-content-between">
-            <a
-              href="https://www.instagram.com/etoseshop/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={myData.instagram} target="_blank" rel="noreferrer">
               <i className="fa fa-instagram" aria-hidden="true"></i>
             </a>
-            <a
-              href="https://m.vk.com/club210602942"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={myData.vk} target="_blank" rel="noreferrer">
               <i className="fa fa-vk" aria-hidden="true"></i>
             </a>
-            <a
-              href="https://tiktok.com/@etoseshop"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={myData.tiktok} target="_blank" rel="noreferrer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="19"
@@ -104,27 +114,27 @@ const Heading = ({ children }: IHead) => {
           <div className="infoCustom mt-50">
             <div className="connect">
               <span>Связаться с нами:</span>
-              <a className={'d-block mt-1'} href="tel:+79998397628">
-                +7 (999) 839-76-28
+              <a className={'d-block mt-1'} href={`tel:${myData.telephone}`}>
+                {myData.telephone}
               </a>
             </div>
             <div className="connect mt-50">
               <span>E-mail:</span>
-              <a className={'d-block mt-1'} href="mailto:Etoseshop@yandex.ru">
-                Etoseshop@yandex.ru
+              <a className={'d-block mt-1'} href={`mailto:${myData.email}`}>
+                {myData.email}
               </a>
             </div>
             <div className="connect mt-50">
-              <span>ИП Калугин</span>
-              <span className={'d-block mt-1'}>Руслан Сергеевич</span>
+              <span>ИП </span>
+              <span className={'d-block mt-1'}>{myData.ip}</span>
             </div>
             <div className="connect mt-50">
               <span>ОГРН:</span>
-              <span className={'d-block mt-1'}>322774600080630</span>
+              <span className={'d-block mt-1'}>{myData.ogrn}</span>
             </div>
             <div className="connect mt-50">
               <span>ИНН:</span>
-              <span className={'d-block mt-1'}>644008830108</span>
+              <span className={'d-block mt-1'}>{myData.inn}</span>
             </div>
           </div>
         </header>

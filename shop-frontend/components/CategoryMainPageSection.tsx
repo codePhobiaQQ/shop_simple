@@ -1,8 +1,12 @@
 import Link from 'next/link'
+import { ICategories } from '../services/main.services'
+import { backendUrl } from '../vars'
 
-const CategoryMainPageSection = () => {
-  const categories = [{}, {}, {}, {}, {}, {}]
+interface ICategoryMainPageSection {
+  categories: ICategories[]
+}
 
+const CategoryMainPageSection = ({ categories }: ICategoryMainPageSection) => {
   return (
     <div className="products-catagories-area clearfix">
       <div className="amado-pro-catagory clearfix">
@@ -13,11 +17,11 @@ const CategoryMainPageSection = () => {
           >
             <Link href="/categories">
               <a>
-                <img src="img/cover.jpeg" alt="cover" />
+                <img src={backendUrl + categori.image.url} alt="cover" />
                 <div className="hover-content">
                   <div className="line"></div>
-                  <p>От ₽150</p>
-                  <h4>Чехол Черный IPhone</h4>
+                  <p>От ₽{categori.price}</p>
+                  <h4>{categori.name}</h4>
                 </div>
               </a>
             </Link>
